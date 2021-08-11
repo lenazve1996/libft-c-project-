@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+
+void *ft_memmove(void *dst, const void *src, size_t len)
+{
+	unsigned char *tmp_str;
+	unsigned char *tmp_str2;
+
+	tmp_str = (unsigned char *)src;
+	tmp_str2 = (unsigned char *)dst;
+	while(len--)
+		*tmp_str2++ = *tmp_str++;
+	return(dst);
+}
+
+int main()
+{
+	unsigned char src[10]= "1234567890";
+	printf("%s\n", src);
+	printf("%s\n", ft_memmove(&src[1], &src[3], 3));
+	printf("%s\n", memmove(&src[1], &src[3], 3));
+}
