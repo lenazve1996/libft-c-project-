@@ -1,5 +1,12 @@
 #include "libft.h"
 
+static	void	ft_free_array(char **split_str, int n_str)
+{
+	while (n_str >= 0)
+		free(split_str[n_str--]);
+	free(split_str);
+}
+
 static	int	ft_number_of_str(char const *s, char c)
 {
 	int	number_of_str;
@@ -40,8 +47,8 @@ static	void	ft_splitting_for_array(char const *s, char c, char **split_str)
 			while (s[i] != c && s[i] != '\0')
 				i++;
 			split_str[str] = ft_substr(s, tmp, i - tmp);
-			if (!(split_str))
-				free (split_str);
+			if (!split_str[str])
+				ft_free_array(split_str, str);
 			str++;
 		}
 		if (s[i] != '\0')
@@ -57,7 +64,7 @@ char	**ft_split(char const *s, char c)
 
 	number_of_str = ft_number_of_str(s, c);
 	split_str = (char **)malloc((number_of_str + 1) * sizeof(char *));
-	if (!(split_str))
+	if (!split_str)
 		return (NULL);
 	ft_splitting_for_array(s, c, split_str);
 	return (split_str);
