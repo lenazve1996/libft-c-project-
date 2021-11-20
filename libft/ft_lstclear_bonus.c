@@ -6,7 +6,7 @@
 /*   By: ayajirob <ayajirob@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:37:27 by ayajirob          #+#    #+#             */
-/*   Updated: 2021/11/17 23:02:36 by ayajirob         ###   ########.fr       */
+/*   Updated: 2021/11/20 20:54:23 by ayajirob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void ft_lstclear(t_list **lst, void (*del)(void*))
     {
         tmp = *lst;
         *lst = tmp->next;
-       ft_lstdelone(tmp, del); 
+       ft_lstdelone(tmp, del);
     }
 }
