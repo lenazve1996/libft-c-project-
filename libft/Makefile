@@ -24,7 +24,7 @@ all : $(NAME)
 		$(CC) $(FLAGS) -c $< -o $@
 
 bonus :
-		@make TMP_OBJ="$(OB) $(BONUS_OBJ)" all
+		@make TMP_OBJ="$(BONUS_OBJ)" all
 
 clean:
 		rm -f $(OB) $(BONUS_OBJ)
