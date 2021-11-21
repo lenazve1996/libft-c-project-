@@ -12,7 +12,9 @@ BONUS_SRC	=	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstl
 ft_lstadd_back_bonus.c ft_lstdelone.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 BONUS_OBJ	=	$(BONUS_SRC:.c=.o)
 
-$(NAME) : $(OB)
+override TMP_OBJ ?= $(OB)
+
+$(NAME) : $(TMP_OBJ)
 		ar rc $(NAME) $?
 		ranlib $(NAME)
 
@@ -21,12 +23,8 @@ all : $(NAME)
 %.o : %.c libft.h
 		$(CC) $(FLAGS) -c $< -o $@
 
-bonus : $(BONUS_OBJ)
-		ar rc $(NAME) $?
-		ranlib $(NAME)
-
-%_bonus.o: %_bonus.c libft.h
-		$(CC) $(FLAGS) -c $< -o $@
+bonus :
+		@make TMP_OBJ="$(OB) $(BONUS_OBJ)" all
 
 clean:
 		rm -f $(OB) $(BONUS_OBJ)
