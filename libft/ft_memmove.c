@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayajirob <ayajirob@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/21 14:26:15 by ayajirob          #+#    #+#             */
-/*   Updated: 2021/11/21 14:26:16 by ayajirob         ###   ########.fr       */
+/*   Created: 2021/12/05 15:43:30 by ayajirob          #+#    #+#             */
+/*   Updated: 2021/12/05 15:43:31 by ayajirob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*tmp_src;
 	char	*tmp_dst;
 
-	if ((void *)dst == NULL || (void *)src == NULL)
+	if ((void *)dst == NULL && (void *)src == NULL)
 		return (NULL);
 	tmp_dst = (char *)dst;
 	tmp_src = (char *)src;
